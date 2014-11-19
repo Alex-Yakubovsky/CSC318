@@ -42,11 +42,20 @@
     <div class="grades-container">
       <div class="content-header">
           <span class="content-title"> My Grades </span>
+
+          <div class="select-course">
+            <label> Choose course : </label>
+              <select id="myGradesSubject" onchange="changeSubject()">
+                <option value="Math"> Math </option>
+                <option value="English"> English </option>
+              </select>
+            </div>
+
           <hr />
       </div>
 
       <div class="grade-chart-container">
-          <table class="table table-bordered">
+          <table class="table table-bordered" >
             <thead>
               <tr>
                 <th class="shaded-header"> Name </th>
@@ -55,6 +64,21 @@
                 <th class="shaded-header"> Details </th>
               </tr>
             </thead>
+            <tbody id="tBodyMygrades">
+              <tr id="tr1Mygrades">
+                <td> Assignment </td>
+                <td> Math </td>
+                <td>  90% </td>
+                <td> <input type="button" value="Feedback"> </td>
+              </tr>
+              <tr id="tr2Mygrades">
+                <td> Assignment 2 </td>
+                <td> Math </td>
+                <td>  90% </td>
+                <td> <input type="button" value="Start"> </td>
+              </tr>
+            </tbody>
+
       </div>
     </div>
 
@@ -280,6 +304,28 @@
       $(".screen-option").click(function(){
         console.log("here!");
         $(".video-container").toggleClass("fullscreen");
+      });
+
+      var changeSubject = function(){
+          alert("Hey");
+      }
+
+      $('#myGradesSubject').change(function(){
+        //alert($('#myGradesSubject').val());
+        if($('#myGradesSubject').val() == "Math"){
+          // Math
+          $("#tr1Mygrades").remove();
+          $("#tr2Mygrades").remove();
+          $("#tBodyMygrades").append("<tr id=\"tr1Mygrades\"> <td> Assignment </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Feedback\"> </td> </tr>");
+          $("#tBodyMygrades").append("<tr id=\"tr2Mygrades\"> <td> Assignment </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Feedback\"> </td> </tr>");
+        }else{
+          //English - Grade 12
+          $("#tr1Mygrades").remove();
+          $("#tr2Mygrades").remove();
+          $("#tBodyMygrades").append("<tr id=\"tr1Mygrades\"> <td> Assignment English </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Feedback\"> </td> </tr>");
+          $("#tBodyMygrades").append("<tr id=\"tr2Mygrades\"> <td> Assignment </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Start\"> </td> </tr>");
+
+        }
       });
    });
   </script>

@@ -444,3 +444,7 @@
 .shaded-header{
     background-color: gray;
 }
+
+.select-course{
+  float:right;
+}
