@@ -6,6 +6,7 @@ App.Router.map(function(){
     this.resource('lectures-courses');
     this.resource('course', {path :'course/:course_id'});
     this.resource('feedback');
+    this.resource('grades');
   });
 
   this.resource('lecture', function(){
