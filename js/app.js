@@ -13,6 +13,7 @@ App.Router.map(function(){
     this.resource('lecture-content');
   });
   this.resource('homework');
+  this.resource('library');
 });
 
 

@@ -24,7 +24,8 @@
     }
 
     .container {
-      height: 100%
+      height: 100%;
+      width: 100%;
     }
 
     .masthead {
@@ -445,6 +446,15 @@
     background-color: gray;
 }
 
+<<<<<<< HEAD
+.library-options-container{
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    width: 80%;
+    margin-top: 5%;
+=======
 .select-course{
   float:right;
+>>>>>>> 9615ce79c2f36300e2975e2c78f0e45318386e05
 }
