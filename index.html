@@ -14,7 +14,7 @@
   <div class="masthead">
     <ul class="nav nav-justified">
       <li>{{#link-to 'classroom'}} Classroom {{/link-to}}</li>
-      <li><a> Library </a></li>
+      <li>{{#link-to 'library'}} Library {{/link-to}}</li>
       <li><a> Internet </a></li>
       <li><a> Settings </a></li>
     </ul>
@@ -22,6 +22,45 @@
   <div class="container">
     {{ outlet }}
   </div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="library">
+    <div class="container">
+      <div class="library-options-container">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="shaded-header"> Book Name </th>
+              <th class="shaded-header"> Subject </th>
+              <th class="shaded-header"> View </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th> Lord of the Flies </th>
+              <th> Grade 10 English </th>
+              <th> OPEN </th>
+            </tr>
+            <tr>
+              <th> Hamlet </th>
+              <th> Grade 11 English </th>
+              <th> OPEN </th>
+            </tr>
+            <tr>
+              <th> Math in Action </th>
+              <th> Grade 11 Math </th>
+              <th> OPEN </th>
+            </tr>
+            <tr>
+              <th> Of Mice and Men </th>
+              <th> Leisure </th>
+              <th> OPEN </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </script>
 
 
@@ -70,13 +109,13 @@
     <ul class="content">
       <ul class="nav nav-justified">
         <li>
-          {{#link-to 'lecture'}}
+          {{#link-to 'lecture-content'}}
             <p> Math </p>
             <p> Progress: 7/12 </p>
           {{/link-to}}
         </li>
         <li>
-          {{#link-to 'lecture'}}
+          {{#link-to 'lecture-content'}}
             <p> Grade 12 English </p>
             <p> Progress: 5/11 </p>
           {{/link-to}}
@@ -113,7 +152,7 @@
                 <div class="video-time-bar"> 
                   <div class="time-elapsed"> </div>
                 </div>
-                <img src="img/fullscreen.png" class="img-thumbnail screen-option"></img>
+                <img src="img/fullscreen.png" class="img-thumbnail screen-option" onclick="toggleFullScreen()"></img>
                 <div class="video-time"> 4:20/17:45 </div>
             </div>
           </div>
@@ -276,12 +315,9 @@
   <script src="tests/runner.js"></script>
 
   <script>
-  $(document).ready(function(){
-      $(".screen-option").click(function(){
-        console.log("here!");
+      toggleFullScreen = function(){
         $(".video-container").toggleClass("fullscreen");
-      });
-   });
+      }
   </script>
 
 </body>
