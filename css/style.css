@@ -1,0 +1,366 @@
+/* Put your CSS here */
+.ember-application {
+    margin: 20px;
+}
+
+.active {
+    font-weight: bold;
+}
+
+ html {
+        height: 100%
+      }
+
+      body > .ember-view {
+          height: 100%;
+      }
+
+     .ember-application {
+        height: 100%
+      }
+
+      body {
+         padding-top: 20px;
+    }
+
+    .container {
+      height: 100%
+    }
+
+    .masthead {
+      color:#FFFFFF;
+      background-color:#FFFFFF;
+      border:0;
+    }
+
+    .footer {
+         border-top: 1px solid #EEEEEE;
+         margin-top: 40px;
+         padding-bottom: 40px;
+         padding-top: 40px;
+    }
+
+    .jumbotron {
+         background-color: transparent;
+         text-align: center;
+    }
+
+    .jumbotron .btn {
+         font-size: 21px;
+         padding: 14px 24px;
+    }
+
+    .nav-justified {
+         background-color: #EEEEEE;
+    }
+
+    .nav-justified > li {
+      padding-left: 15px;
+      padding-right: 15px;
+      background-color:white;
+    }
+
+    .nav-justified > li > a {
+         background-color: #E5E5E5;
+         background-repeat: repeat-x;
+         color: #777777;
+         margin-bottom: 0px;
+         padding-bottom: 15px;
+         padding-top: 15px;
+         text-align: center;
+    }
+
+    .nav-justified > .active > a, .nav-justified > .active > a:hover, .nav-justified > .active > a:focus {
+         background-color: #DDDDDD;
+         background-image: none;
+         box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15) inset;
+    }
+
+    .nav-justified > li:first-child > a {
+         border-radius: 5px 5px 0px 0px;
+    }
+
+    .nav-justified > li:last-child > a {
+         border-bottom: 0px none;
+         border-radius: 0px 0px 5px 5px;
+    }
+
+    @media (min-width: 768px) {
+      .nav-justified { max-height: 52px; }
+      .nav-justified > li > a { border-right: 1px solid #D5D5D5; border-left: 1px solid #FFFFFF; }
+      .nav-justified > li:first-child > a { border-left: 0px none; border-radius: 5px 0px 0px 5px; }
+      .nav-justified > li:last-child > a { border-right: 0px none; border-radius: 0px 5px 5px 0px; }
+    }
+
+    @media screen and (min-width: 768px) {
+      .masthead, .marketing, .footer { padding-right: 20px; padding-left: 20px; }
+    }
+
+   .vertical-center {
+      min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+      min-height: 80vh; /* These two lines are counted as one :-)       */
+
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-group > .pad-btn {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #sidebar-container {
+      padding-top: 50px;
+      float: left;
+      width: 13%;
+      height: 100%;
+    }
+
+    #sidebar-container > .nav > li {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    #sidebar-container > .nav > li > a {
+     text-align: center; 
+     color: #777777;
+     background-color: #E5E5E5;
+    }
+
+    .content-container {
+      margin-left:3%;
+      margin-top: 3%;
+      float:left;
+      position: relative;
+      width: 77%;
+      padding-left: 5%;
+      height: 100%;
+    }
+
+    .content-header{
+      width: 100%;
+    }
+
+    .content-title {
+      color: #49E0E8;
+    }
+
+    hr {
+      width: 100%;
+      height: 2px;
+      background: #49E0E8;
+    }
+
+    .homework-dashboard {
+      padding-top: 50px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .homework-container{
+      float:left;
+      width: 50%;
+      height: 95%;
+      border: 1px solid black;
+      overflow: scroll;
+    }
+
+    .textbook-container{
+      float:left;
+      width: 50%;
+      height: 95%;
+      border: 1px solid black;
+      background-color: #D2D28D;
+      overflow: scroll;
+    }
+
+    .textbook-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .answer{
+      padding-left: 15px;
+    }
+
+    .homework-content{
+      padding-left:20px;
+    }
+
+   .submit-btn{
+       padding-left: 20px;
+       padding-right: 20px;
+       padding-bottom: 20px;
+   }
+
+   .submit-btn-save{
+       background-color:#FF9F5F;
+   }
+
+   .submit-btn-save:hover{
+       background-color:#CC7F4C;
+   }
+
+   .submit-btn-submit{
+      background-color:#85D6FF;
+   }
+
+   .submit-btn-submit:hover{
+       background-color:#6AABCC
+   }
+
+   .feedback-container{
+       float: left;
+       height: 80%;
+       width: 60%;
+       margin-left: 5%;
+       margin-top: 50px;
+       margin-bottom: 100px;
+   }
+
+   .homework-results-container{
+       width: 100%;
+       height 100%;
+       border: 1px solid black;
+   }
+
+   .question-answer-side{
+       width: 50%;
+       float: left;
+   }
+
+   .feedback-side{
+       width: 50%;
+       float: left;
+   }
+
+   .homework-title{
+       font-size: 32px;
+   }
+
+   .question{
+       padding-top: 20px;
+       padding-left: 20px;
+   }
+
+   .answer{
+       padding-left: 40px;
+   }
+
+   .answer-incorrect{
+       text-decoration: line-through;
+       color: red;
+   }
+
+   .answer-correct{
+       font-weight: bold;
+       color: green;
+   }
+
+   .answer-unchosen{
+       color: #B2B2B2
+   }
+
+   .feedback{
+       padding-top: 60px;
+       padding-bottom: 100px;
+   }
+
+
+   #success-message{
+       width: 100%;
+       background-color: #99FF99;
+       height: 40px;
+       transition: all 1s ease-in-out;
+       -webkit-animation: fadeInOut 6s;
+       animation: fadeInOut 6s;
+       opacity: 0;
+   }
+
+
+@-webkit-keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    16% {
+        opacity: 1;
+    }
+    84% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    16% {
+        opacity: 1;
+    }
+    84% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.sidebar-container {
+      padding-top: 50px;
+      float: left;
+      width: 20%;
+      height: 100%;
+    }
+
+
+.sidebar-container > .nav > li {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+
+.sidebar-container > .nav > li > a {
+ text-align: center; 
+ color: #777777;
+}
+
+
+.sidebar-container > .nav > li > .completed {
+    background-color: #85FF5C;
+}
+
+.sidebar-container > .nav > li > .in-progress {
+    background-color: yellow;
+}
+
+.sidebar-container > .nav > li > .incomplete {
+    background-color: #E6E6E6;
+}
+
+.lecture-content-container {
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 80%;
+    float: left;
+    height: 120%;
+}
+
+.video-container {
+    width:100%;
+    height:80%;
+    float:left;
+    border: 1px solid black;
+}
+
+.video-container > .video { 
+    width:100%;
+    height:80%;
+    float:left;
+}
+
+.video-container > .key-notes{
+    width:100%;
+    height:20%;
+    float:left;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+     
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+  <div class="masthead">
+    <ul class="nav nav-justified">
+      <li>{{#link-to 'classroom'}} Classroom {{/link-to}}</li>
+      <li><a> Library </a></li>
+      <li><a> Internet </a></li>
+      <li><a> Settings </a></li>
+    </ul>
+  </div>
+  <div class="container">
+    {{ outlet }}
+  </div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="classroom">
+    <div id="sidebar-container">
+      <ul class="nav">
+        <li><a> My Grades </a></li>
+        <li>{{#link-to 'courses'}} My Homework {{/link-to}}</li>
+        <li><a> My Tests </a></li>
+        <li>{{#link-to 'lectures-courses'}} My Courses {{/link-to}}</li>
+      </ul>
+    </div>
+    {{ outlet }}
+  </script>
+
+
+  <script type="text/x-handlebars" id="lectures-courses">
+    <div class="content-container">
+      <div class="content-header">
+          <span class="content-title"> Lectures </span>
+          <hr />
+    </div>
+    <ul class="content">
+      <ul class="nav nav-justified">
+        <li>
+          {{#link-to 'lecture'}}
+            <p> Math </p>
+            <p> Progress: 7/12 </p>
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'lecture'}}
+            <p> Grade 12 English </p>
+            <p> Progress: 5/11 </p>
+          {{/link-to}}
+        </li>
+      </ul>
+    </ul>
+  </script>
+
+
+  <script type="text/x-handlebars" id="lecture">
+    <div class="sidebar-container">
+      <ul class="nav">
+        <li>{{#link-to 'lecture-content' classNames="completed"}} Sample Lecture {{/link-to}} </li>
+        <li> <a class="completed"> Sample Lecture </a> </li>
+        <li> <a class="completed"> Sample Lecture </a> </li>
+        <li> <a class="in-progress"> Sample Lecture </a> </li>
+        <li> <a class="incomplete"> Sample Lecture </a> </li>
+      </ul>
+    </div>
+    {{ outlet }}
+  </script>
+
+
+  <script type="text/x-handlebars" id="lecture-content">
+    <div class="lecture-content-container">
+      <div class="content-header">
+          <span class="content-title"> Sample Lecture </span>
+          <hr />
+      </div>
+      <div class="video-container">
+          <div class="video">
+          </div>
+
+          <div class="key-notes">
+          </div>
+      </div>
+    </div>
+  </script>
+
+  
+  <script type="text/x-handlebars" id="courses">
+    <div class="content-container">
+    {{#if submission}}
+        <div id="success-message">  <p class="text-center"> <strong> You have successfully {{submission}}ed </strong></p> </div>
+    {{/if}}
+      <div class="content-header">
+          <span class="content-title"> My Homework </span>
+          <hr />
+      </div>
+      <div class="content">
+        <ul class="nav nav-justified">
+          {{#each course in model}}
+            <li> 
+              {{#link-to 'course' course}}
+                <p>  {{course.course_name}} </p>
+                <p>  Progress: {{course.completed_homework}}/{{course.total_homework}} </p>
+              {{/link-to}}
+             </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="course">
+    <div class="content-container">
+      <div class="content-header">
+          <span class="content-title"> My Homework </span>
+          <hr />
+      <div>
+    </div>
+    <div class="content">
+      <table class="table table-hover">
+        <tr>
+          <td> <strong> Assignment </strong> </td>
+          <td> <strong> Grade </strong> </td>
+          <td> <strong> Results </strong> </td>
+        </tr>
+        {{#each assignment in assignments}}
+          <td>{{assignment.name}}</td>
+          {{#if assignment.complete}}
+           <td> -- </td>
+           <td> {{#link-to 'homework'}} Start {{/link-to}} </a> </td>
+          {{else}}
+            <td> 77% </td>
+            <td> {{#link-to 'feedback'}} Feedback {{/link-to}} </td>
+          {{/if}}
+        {{/each}}
+      </table>
+    </div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="homework">
+   
+    <div class="homework-dashboard">
+      <div class="submission-btns">
+        <div class="btn-group btn-group-justified" role="group">
+          <div class="btn-group submit-btn" role="group">
+            {{#link-to 'courses' (query-params submission="Submitt") classNames="btn btn-default submit-btn-submit"}} Submit {{/link-to}}
+          </div>
+          <div class="btn-group submit-btn" role="group">
+            {{#link-to 'courses' (query-params submission="Sav") classNames="btn btn-default submit-btn-save"}}Save{{/link-to}}
+          </div>
+        </div>
+      </div>
+      <div class="textbook-container">
+        {{ textbook }}
+      </div>
+      <div class="homework-container">
+        <div class="homework-content">
+          <p>1. Sample Question </p>
+          <p class="answer"> a) Answer 1 </p>
+          <p class="answer"> b) Answer 2 </p>
+          <p class="answer"> c) Answer 3 </p>
+
+          <p>2. Sample Question </p>
+          <p class="answer"> a) Answer 1 </p>
+          <p class="answer"> b) Answer 2 </p>
+          <p class="answer"> c) Answer 3 </p>
+        </div>
+      </div>
+    </div>
+
+  </script>
+
+  <script type="text/x-handlebars" id="feedback">
+    
+    <div class="feedback-container">
+      <div class="content-header">
+          <span class="content-title"> My Homework </span>
+          <hr />
+      </div>
+      <div class="homework-results-container">
+        <p class="text-center homework-title"> Grade 9 Math: Problem Set 1  </p>
+        <div class="question-answer-side">
+          <p class="question"> 1) What is the result of the following: 3 + 2 x 4 </p>
+          <p class="answer answer-incorrect"> a) 20 </p>
+          <p class="answer answer-unchosen"> b) 24 </p>
+          <p class="answer answer-correct"> c) 11 </p>
+          <p class="answer answer-unchosen"> d) 9 </p>
+          
+          <p class="question"> 2) What is the result of the following: (3 + 2) x 4 </p>
+          <p class="answer answer-correct"> a) 20 </p>
+          <p class="answer answer-unchosen"> b) 24 </p>
+          <p class="answer answer-unchosen"> c) 11 </p>
+          <p class="answer answer-unchosen"> d) 9 </p>
+        </div>
+        <div class="feedback-side">
+          <p class="feedback"> Remember Bedmas, Multiplication comes before addition </p>
+          <p class="feedback"> In the question, we see that brackets dominate in priority before multiplication </p>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+    </div>
+  </script>
+
+
+<!---  <div class="vertical-center">
+    <div class="container">
+      <div class="btn-group btn-group-justified vertical-center-row" role="group" aria-label="...">
+        <div class="btn-group pad-btn" role="group">
+          <a class="btn btn-default btn-lg ">My Grades</a>
+        </div>
+        <div class="btn-group pad-btn" role="group">
+          {{#link-to 'homework' classNames="btn btn-default btn-lg"}}My Homework{{/link-to}}
+        </div>
+        <div class="btn-group pad-btn" role="group">
+          <a class="btn btn-default btn-lg">My Tests</a>
+        </div>
+        <div class="btn-group pad-btn" role="group">
+          <a class="btn btn-default btn-lg">My Courses </a>
+        </div>
+      </div>   
+    </div>
+  </div> -->
+
+
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-v1.3.0.js"></script>
+  <script src="js/libs/ember-1.8.1.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+
+  <script>
+  $(document).ready(function(){
+      /*success_message = $('#success-message');
+      success_message.fadeOut(3000);*/
+      });
+  </script>
+
+</body>
+</html>
