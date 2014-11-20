@@ -28,37 +28,48 @@
   <script type="text/x-handlebars" id="library">
     <div class="container">
       <div class="library-options-container">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th class="shaded-header"> Book Name </th>
-              <th class="shaded-header"> Subject </th>
-              <th class="shaded-header"> View </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th> Lord of the Flies </th>
-              <th> Grade 10 English </th>
-              <th> OPEN </th>
-            </tr>
-            <tr>
-              <th> Hamlet </th>
-              <th> Grade 11 English </th>
-              <th> OPEN </th>
-            </tr>
-            <tr>
-              <th> Math in Action </th>
-              <th> Grade 11 Math </th>
-              <th> OPEN </th>
-            </tr>
-            <tr>
-              <th> Of Mice and Men </th>
-              <th> Leisure </th>
-              <th> OPEN </th>
-            </tr>
-          </tbody>
-        </table>
+        <div class="select-course clear-course">
+          <label> Choose course : </label>
+            <select id="myGradesSubject" onchange="filterLibrary(value)">
+              <option value="all"> All </option>
+              <option value="math"> Math </option>
+              <option value="english"> English </option>
+              <option value="leisure"> Leisure </option>
+            </select>
+          </div>
+        <div class="table-container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="shaded-header"> Book Name </th>
+                <th class="shaded-header"> Subject </th>
+                <th class="shaded-header"> View </th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <tr class="english">
+                <th> Lord of the Flies </th>
+                <th> Grade 10 English </th>
+                <th onclick="openBook()"> OPEN </th>
+              </tr>
+              <tr class="english">
+                <th> Hamlet </th>
+                <th> Grade 11 English </th>
+                <th onclick="openBook()"> OPEN </th>
+              </tr >
+              <tr class="math">
+                <th> Math in Action </th>
+                <th> Grade 11 Math </th>
+                <th onclick="openBook()"> OPEN </th>
+              </tr >
+              <tr class="leisure">
+                <th> Of Mice and Men </th>
+                <th> Leisure </th>
+                <th onclick="openBook()"> OPEN </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </script>
@@ -341,30 +352,62 @@
   <script>
       toggleFullScreen = function(){
         $(".video-container").toggleClass("fullscreen");
+
       }
 
-      var changeSubject = function(){
-          alert("Hey");
-      }
-
-      $('#myGradesSubject').change(function(){
-        //alert($('#myGradesSubject').val());
-        if($('#myGradesSubject').val() == "Math"){
+      changeSubject = function(){
+          if($('#myGradesSubject').val() == "Math"){
           // Math
           $("#tr1Mygrades").remove();
           $("#tr2Mygrades").remove();
           $("#tBodyMygrades").append("<tr id=\"tr1Mygrades\"> <td> Assignment </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Feedback\"> </td> </tr>");
           $("#tBodyMygrades").append("<tr id=\"tr2Mygrades\"> <td> Assignment </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Feedback\"> </td> </tr>");
-        }else{
+        } else {
           //English - Grade 12
           $("#tr1Mygrades").remove();
           $("#tr2Mygrades").remove();
           $("#tBodyMygrades").append("<tr id=\"tr1Mygrades\"> <td> Assignment English </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Feedback\"> </td> </tr>");
           $("#tBodyMygrades").append("<tr id=\"tr2Mygrades\"> <td> Assignment </td> <td> Change it </td> <td>  90% </td> <td> <input type=\"button\" value=\"Start\"> </td> </tr>");
-
         }
-      });
-   });
+      }
+
+    filterLibrary = function(course){
+      if(course == "math"){
+        $(".english").remove();
+        $(".leisure").remove();
+        $(".math").remove();
+        $("#tbody").append("<tr class='math'> <td> Math in Action </td> <td> Grade 10 Math </td> <td onclick='openBook()'> Open </td> </tr>");
+      }
+      else if(course == "english"){
+        $(".english").remove();
+        $(".leisure").remove();
+        $(".math").remove();
+        $("#tbody").append("<tr class='english'> <td> Hamlet </td> <td> Grade 11 English </td> <td onclick='openBook()'> Open </td> </tr> <tr class='english'> <td> Lord of the flies </td> <td> Grade 10 English </td> <td onclick='openBook()'> Open </td></tr>");
+      }
+
+      else if(course == "leisure"){
+        $(".english").remove();
+        $(".leisure").remove();
+        $(".math").remove();
+        $("#tbody").append("<tr class='leisure'> <td> Of Mice and Men </td> <td> Leisure </td> <td onclick='openBook()'> Open </td> </tr>");
+      }
+
+      else {
+        $(".english").remove();
+        $(".leisure").remove();
+        $(".math").remove();       
+        $("#tbody").append("<tr class='math'> <td> Math in Action </td> <td> Grade 10 Math </td> <td onclick='openBook()'> Open </td> </tr>");
+        $("#tbody").append("<tr class='english'> <td> Hamlet </td> <td> Grade 11 English </td> <td onclick='openBook()'> Open </td> </tr> <tr class='english'> <td> Lord of the flies </td> <td> Grade 10 English </td> <td onclick='openBook()'> Open </td></tr>");
+        $("#tbody").append("<tr class='leisure'> <td> Of Mice and Men </td> <td> Leisure </td> <td onclick='openBook()'> Open </td> </tr>");
+
+
+      }
+    }
+
+  openBook = function(){
+    window.location.href = "pdfs/sample.pdf";
+  }
+
   </script>
 
 </body>
