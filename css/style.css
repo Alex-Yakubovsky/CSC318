@@ -464,3 +464,8 @@
     height: 100%;
     margin-top:20px;
 }
+
+.class-label{
+    font-size: 20px;
+    color:black;
+}

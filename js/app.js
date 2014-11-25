@@ -7,7 +7,10 @@ App.Router.map(function(){
     this.resource('course', {path :'course/:course_id'});
     this.resource('feedback');
     this.resource('grades');
+    this.resource("tests");
   });
+
+  this.resource('test-content');
 
   this.resource('lecture', function(){
     this.resource('lecture-content');

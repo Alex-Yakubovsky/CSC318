@@ -25,6 +25,35 @@
   </script>
 
 
+  <script type="text/x-handlebars" id="index">
+    <div class="content-container">
+      <div class="content-header">
+          <span class="content-title"> Enrolled Courses </span>
+          <hr />
+    </div>
+    <ul class="content">
+      <ul class="nav nav-justified">
+        <li>
+          <a>
+            <p> <strong class="class-label"> Math </strong> </p>
+            <p > Lectures: 7/14 Completed <input type="button" value="Continue"></input></p>
+            <p > Assignments: 4/9 Completed<input type="button" value="Continue"></input></p>
+            <p > Tests: 1/3 Completed <input type="button" value="Continue"></input></p>
+          </a>
+        </li>
+        <li>
+          <a>
+            <p> <strong class="class-label"> Grade 12 English </strong> </p>
+            <p > Lectures: 7/14 Completed<input type="button" value="Continue"></input></p>
+            <p > Assignments: 4/9 Completed<input type="button" value="Continue"></input></p>
+            <p > Tests: 1/3 Completed<input type="button" value="Continue"></input></p>
+          </a>
+        </li>
+      </ul>
+    </ul>
+ </script>
+
+
   <script type="text/x-handlebars" id="library">
     <div class="container">
       <div class="library-options-container">
@@ -78,13 +107,84 @@
   <script type="text/x-handlebars" id="classroom">
     <div id="sidebar-container">
       <ul class="nav">
+        <li>{{#link-to 'lectures-courses'}} My Courses {{/link-to}}</li>
         <li>{{#link-to 'grades'}} My Grades {{/link-to}}</li>
         <li>{{#link-to 'courses'}} My Homework {{/link-to}}</li>
-        <li><a href="mytest.html"> My Tests </a></li>
-        <li>{{#link-to 'lectures-courses'}} My Courses {{/link-to}}</li>
+        <li>{{#link-to 'tests'}} My Tests {{/link-to}}</li>
       </ul>
     </div>
     {{ outlet }}
+  </script>
+
+
+  <script type="text/x-handlebars" id="tests">
+    <div class="content-container">
+      <div class="content-header">
+          <span class="content-title"> Tests </span>
+          <hr />
+    </div>
+    <ul class="content">
+      <ul class="nav nav-justified">
+        <li>
+          {{#link-to 'test-content'}}
+            <p> Math </p>
+            <p> Progress: 1/3 </p>
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'test-content'}}
+            <p> Grade 12 English </p>
+            <p> Progress: 2/2 </p>
+          {{/link-to}}
+        </li>
+      </ul>
+    </ul>
+
+  </script>
+
+  <script type="text/x-handlebars" id="test-content">
+   <div class="grades-container">
+        <div class="content-header">
+            <span class="content-title"> My Tests </span>
+              <hr />
+        </div>
+
+        <div class="grade-chart-container">
+            <table class="table table-bordered" >
+              <thead>
+                <tr>
+                  <th class="shaded-header"> Name </th>
+                  <th class="shaded-header"> Course </th>
+                  <th class="shaded-header"> Duration </th>
+                  <th class="shaded-header"> Grade </th>
+                  <th class="shaded-header"> Weight </th>
+                  <th class="shaded-header"> Topics </th>
+                  <th class="shaded-header"> Details </th>
+                </tr>
+              </thead>
+              <tbody id="tBodyMygrades">
+                <tr id="tr1Mygrades">
+                  <td> Test 1 </td>
+                  <td> Math </td>
+                  <td> 1:00h </td>
+                  <td>  88% </td>
+                  <td> 10% </td>
+                  <td> Lecture 1 - Lecture 4 </td>
+                  <td> <input type="button" value="Feedback"> </td>
+                </tr>
+                <tr id="tr2Mygrades">
+                  <td> Test 2 </td>
+                  <td> Math </td>
+                  <td> 1:00h </td>
+                  <td>  -- </td>
+                  <td> 10% </td>
+                  <td> Lecture 5 - Lecture 9 </td>
+                  <td> <input type="button" value="Start" onclick="redirectToTest()"> </td>
+                </tr>
+              </tbody>
+
+        </div>
+      </div>   
   </script>
 
 
@@ -406,6 +506,10 @@
 
   openBook = function(){
     window.location.href = "pdfs/sample.pdf";
+  }
+
+  redirectToTest = function(){
+    window.location.href = "mytest.html";
   }
 
   </script>
