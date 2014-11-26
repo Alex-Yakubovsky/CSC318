@@ -58,12 +58,12 @@ var courses = [{
    completed_homework: "7",
    total_homework: "10",
    assignments: [{
-    name: "assignment 1",
-    complete: true,
+    name: "Assignment 1",
+    complete: false,
   },
   {
-    name: "...",
-    complete: false,
+    name: "Assingment 2",
+    complete: true,
   }],
  }]
 

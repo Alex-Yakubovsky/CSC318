@@ -13,10 +13,10 @@
   <script type="text/x-handlebars">
   <div class="masthead">
     <ul class="nav nav-justified">
-      <li>{{#link-to 'classroom'}} Classroom {{/link-to}}</li>
-      <li>{{#link-to 'library'}} Library {{/link-to}}</li>
-      <li><a> Internet </a></li>
-      <li><a> Settings </a></li>
+      <li>{{#link-to 'classroom'}} Classroom <img src="img/classroom.png" style="margin-left: 5px;"> {{/link-to}}</li>
+      <li>{{#link-to 'library'}} Library <img src="img/library.png" style="margin-left: 5px;">{{/link-to}}</li>
+      <li><a> Internet <img src="img/internet.png" style="margin-left: 5px;"></a></li>
+      <li><a> Settings <img src="img/settings.png" style="margin-left: 5px;"> </a></li>
     </ul>
   </div>
   <div class="container">
@@ -108,9 +108,9 @@
     <div id="sidebar-container">
       <ul class="nav">
         <li>{{#link-to 'lectures-courses'}} My Courses {{/link-to}}</li>
-        <li>{{#link-to 'grades'}} My Grades {{/link-to}}</li>
-        <li>{{#link-to 'courses'}} My Homework {{/link-to}}</li>
-        <li>{{#link-to 'tests'}} My Tests {{/link-to}}</li>
+        <li>{{#link-to 'grades'}} My Grades  {{/link-to}}</li>
+        <li>{{#link-to 'courses'}} My Homework   {{/link-to}}</li>
+        <li>{{#link-to 'tests'}} My Tests  {{/link-to}}</li>
       </ul>
     </div>
     {{ outlet }}
@@ -263,11 +263,11 @@
   <script type="text/x-handlebars" id="lecture">
     <div class="sidebar-container">
       <ul class="nav">
-        <li>{{#link-to 'lecture-content' classNames="completed"}} Sample Lecture {{/link-to}} </li>
-        <li> {{#link-to 'lecture-content' classNames="completed"}} Sample Lecture {{/link-to}} </li>
-        <li> {{#link-to 'lecture-content' classNames="completed"}} Sample Lecture {{/link-to}} </li>
-        <li> {{#link-to 'lecture-content' classNames="in-progress"}} Sample Lecture {{/link-to}} </li>
-        <li> {{#link-to 'lecture-content' classNames="incomplete"}} Sample Lecture {{/link-to}} </li>
+        <li>{{#link-to 'lecture-content' classNames="completed"}} Lecture - Week 1 <img src="img/tick-2.png"> {{/link-to}} </li>
+        <li> {{#link-to 'lecture-content' classNames="completed"}} Lecture - Week 2 <img src="img/tick-2.png">  {{/link-to}} </li>
+        <li> {{#link-to 'lecture-content' classNames="completed"}} Lecture - Week 3 <img src="img/tick-2.png"> {{/link-to}} </li>
+        <li> {{#link-to 'lecture-content' classNames="in-progress"}} Lecture - Week 4 <img src="img/pause.png"> {{/link-to}} </li>
+        <li> {{#link-to 'lecture-content' classNames="incomplete"}} Lecture - Week 5 <img src="img/media8.png"> {{/link-to}} </li>
       </ul>
     </div>
     {{ outlet }}
@@ -277,7 +277,7 @@
   <script type="text/x-handlebars" id="lecture-content">
     <div class="lecture-content-container">
       <div class="content-header">
-          <span class="content-title"> Sample Lecture </span>
+          <span class="content-title"> Lecture - Week 4 </span>
           <hr />
       </div>
       <div class="video-container">
@@ -293,8 +293,8 @@
           </div>
           
           <div class="key-notes">
-              <p class="key-note"> <strong> Sample note one </strong></p>
-              <p class="key-note"> <strong> Sample note two </strong></p>
+              <p class="key-note"> <strong> This is an important point in the lecture video </strong></p>
+              <p class="key-note"> <strong> Also, this is another one. </strong></p>
               <p class="key-note"> <strong> Sample note three </strong></p>
           </div>
       </div>
@@ -358,7 +358,11 @@
   <script type="text/x-handlebars" id="homework">
    
     <div class="homework-dashboard">
+      <p style="font-size:25px; color:#49E0E8;"> Assignment 2 <p>
+      <hr />
       <div class="submission-btns">
+      <div>
+
         <div class="btn-group btn-group-justified" role="group">
           <div class="btn-group submit-btn" role="group">
             {{#link-to 'courses' (query-params submission="Submitt") classNames="btn btn-default submit-btn-submit"}} Submit {{/link-to}}
@@ -372,17 +376,35 @@
         {{ textbook }}
       </div>
       <div class="homework-container">
-        <div class="homework-content">
-          <p>1. Sample Question </p>
-          <p class="answer"> a) Answer 1 </p>
-          <p class="answer"> b) Answer 2 </p>
-          <p class="answer"> c) Answer 3 </p>
+        <div class="homework-content" style="height: 500px; overflow:scroll;">
+        <br>
+   <p> 1) What is the result of the following: 3 + 2 x 4 </p>
+    <input type="radio" name="question1" value="option1"> a)  20<br>
+    <input type="radio" name="question1" value="option2"> b)  24 <br>
+    <input type="radio" name="question1" value="option3"> c)  11 <br>
+    <input type="radio" name="question1" value="option4"> d)  9<br>
+  <br>
+  <p> 2) What is the result of the following: (3 + 2) x 4</p>
+    <input type="radio" name="question2" value="option1"> a) 20 <br>
+    <input type="radio" name="question2" value="option2"> b) 24 <br>
+    <input type="radio" name="question2" value="option3"> c) 11 <br>
+    <input type="radio" name="question2" value="option4"> d) 9 <br>
 
-          <p>2. Sample Question </p>
-          <p class="answer"> a) Answer 1 </p>
-          <p class="answer"> b) Answer 2 </p>
-          <p class="answer"> c) Answer 3 </p>
-        </div>
+  <br>
+  <p> 3) What is the result of the following: (1 + 1) x 4 </p>
+    <input type="radio" name="question3" value="option1"> 8 <br>
+    <input type="radio" name="question3" value="option2"> 2 <br>
+    <input type="radio" name="question3" value="option3"> 16 <br>
+    <input type="radio" name="question3" value="option4"> 12 <br>
+
+  <br>
+  <p> 4) Question 4 </p>
+    <input type="radio" name="question4" value="option1"> Option 1 <br>
+    <input type="radio" name="question4" value="option2"> Option 2 <br>
+    <input type="radio" name="question4" value="option3"> Option 3 <br>
+    <input type="radio" name="question4" value="option4"> Option 4 <br>
+
+  <br><br>
       </div>
     </div>
 

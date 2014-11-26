@@ -139,11 +139,13 @@
     }
 
     .content-header{
+      margin-top: 10px;
       width: 100%;
     }
 
     .content-title {
       color: #49E0E8;
+      font-size: 25px;
     }
 
     hr {
@@ -161,18 +163,20 @@
     .homework-container{
       float:left;
       width: 50%;
-      height: 95%;
       border: 1px solid black;
       overflow: scroll;
+      margin-bottom: 10px;
+      height: 400px; overflow:scroll;
     }
 
     .textbook-container{
       float:left;
       width: 50%;
-      height: 95%;
       border: 1px solid black;
-      background-color: #D2D28D;
+      background-color: #e4dcd5;
       overflow: scroll;
+      margin-bottom: 10px;
+      height: 400px; overflow:scroll;
     }
 
     .textbook-container::-webkit-scrollbar {
@@ -188,25 +192,25 @@
     }
 
    .submit-btn{
-       padding-left: 20px;
-       padding-right: 20px;
+       padding-left: 200px;
+       padding-right: 200px;
        padding-bottom: 20px;
    }
 
    .submit-btn-save{
-       background-color:#FF9F5F;
+       background-color:#49E0E8;
    }
 
    .submit-btn-save:hover{
-       background-color:#CC7F4C;
+       background-color:#C2FFFF;
    }
 
    .submit-btn-submit{
-      background-color:#85D6FF;
+      background-color:#49E0E8;
    }
 
    .submit-btn-submit:hover{
-       background-color:#6AABCC
+       background-color:#C2FFFF;
    }
 
    .feedback-container{
@@ -308,7 +312,7 @@
 }
 
 .sidebar-container {
-      padding-top: 50px;
+      padding-top: 100px;
       float: left;
       width: 20%;
       height: 100%;
@@ -443,7 +447,7 @@
    }
 
 .shaded-header{
-    background-color: gray;
+    background-color: #F5FFFF;
 }
 
 .library-options-container{
